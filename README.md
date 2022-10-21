@@ -67,17 +67,31 @@ pip install git+https://github.com/WY-Wang/RECASOpt.git
 
 ## Repository Structure
 
-* results folder
+### results folder
 
-* scripts folder
+### scripts folder
+[experiment.py](https://github.com/WY-Wang/2021.0343/blob/master/scripts/experiment.py) shows an example for setting up test problem and RECAS algorithm for numerical experiments.
 
-* src folder
+### src folder
+All the codes for the RECAS algorithm are collected in the RECASOpt subfolder, in which
+
+[algorithm/multiobjective_strategies.py](https://github.com/WY-Wang/2021.0343/blob/master/src/RECASOpt/algorithm/multiobjective_strategies.py) implements the main surrogate-assisted framework of RECAS including initialization and iteration phases.
+
+[optimize/optimization.py](https://github.com/WY-Wang/2021.0343/blob/master/src/RECASOpt/optimize/optimization.py) implements 
+
+[problems/multiobjective_problems.py](https://github.com/WY-Wang/2021.0343/blob/master/src/RECASOpt/problems/multiobjective_problems.py) implements
+
+[utils/multiobjective_archives](https://github.com/WY-Wang/2021.0343/blob/master/src/RECASOpt/utils/multiobjective_archives.py)
+
+[utils/multiobjective_sampling](https://github.com/WY-Wang/2021.0343/blob/master/src/RECASOpt/utils/multiobjective_sampling.py)
+
+[utils/multiobjective_utilities](https://github.com/WY-Wang/2021.0343/blob/master/src/RECASOpt/utils/multiobjective_utilities.py)
 
 
 
 ## Replicating
 
-The following example shows how to run RECAS on a multi-objective optimization problem with predefined experiment setups. Please also refer to the [script](https://github.com/WY-Wang/RECASOpt/blob/main/Examples/experiment.py) for this example.
+The following example shows how to run RECAS on a multi-objective optimization problem with predefined experiment setups. Please also refer to the [script](https://github.com/INFORMSJoC/2021.0343/blob/master/scripts/experiment.py) for this example.
 
 ### Test Problem Setup
 ```python
