@@ -71,11 +71,12 @@ The following example shows how to run RECAS on a multi-objective optimization p
 
 ### Test Problem Setup
 ```python
-# Create a DTLZ2 test problem with 2 objectives and 10 decision variables
 from RECASOpt.problems.multiobjective_problems import DTLZ2
+
+# Create a DTLZ2 test problem with 2 objectives and 10 decision variables
 OPT_PROB = DTLZ2(nobj=2, dim=10)
 ```
-*Note: The RECASOpt package have already implemented some problems for testing. You can also easily design your own test problem classes by inheriting the OptimizationProblem class defined in pySOT.*
+*Note: The RECASOpt package have already implemented some problems for testing. You can also easily design your own test problem classes by inheriting from the OptimizationProblem class defined in pySOT.*
 
 ### Run Experiment
 ```python
@@ -99,7 +100,7 @@ for trial in range(1, N_TRIALS + 1):
         batch_size=BATCH_SIZE,      # int: The size of each batch
     )
 ```
-*Note: Like the customization for test problem (opt_prob), you can customize both experimental design (exp_design) and surrogate mode (surrogate) if and only if you inherite their parent classes, pySOT.ExperimentalDesign and pySOT.Surrogate, respectively.*
+*Note: Other experimental design methods (exp_design) and surrogate models (surrogate) are available in pySOT. Like the customization for test problem (opt_prob), you can also program and use your own exp_design and surrogate classes in RECAS, but they must inherit from the parent classes, pySOT.ExperimentalDesign and pySOT.Surrogate, respectively.*
 
 
 
