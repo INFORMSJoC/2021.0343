@@ -87,19 +87,19 @@ All the codes for the RECAS algorithm are collected in the RECASOpt subfolder, i
 
 ### results folder
 
-[main/Figure_4.pdf]()
+[main/Figure_4.png](https://github.com/WY-Wang/2021.0343/blob/master/results/main/Figure_4.png) (i.e., Figure 4 in the main paper) shows the best and worst non-dominated fronts obtained by seven algorithms among 20 indepedent trials on bi-objective DTLZ6.
 
-[main/Figure_5.pdf]()
+[main/Figure_5.png](https://github.com/WY-Wang/2021.0343/blob/master/results/main/Figure_5.png) (i.e., Figure 5 in the main paper) shows the average data profiles with error bars for seven algorithms on DTLZ problem sets with 10 and 20 decision variables.
 
-[main/Table_2.png]()
+[main/Table_2.png](https://github.com/WY-Wang/2021.0343/blob/master/results/main/Table_2.png) (i.e., Table 2 in the main paper) collects the numerical results of seven algorithms over DTLZ1 to DTLZ7 where the number of decision variales is 10 and the number of objectives varies from 2 to 10. The IGD indicator values obtained by each algorithm after 300 evaluations are averaged over 20 independent trials and are statistically compared to those obtained by RECAS.
 
-[main/Table_3.png]()
+[main/Table_3.png](https://github.com/WY-Wang/2021.0343/blob/master/results/main/Table_3.png) (i.e., Table 3 in the main paper) collects the numerical results of seven algorithms over DTLZ1 to DTLZ7 where the number of decision variales is 20 and the number of objectives varies from 2 to 10. The IGD indicator values obtained by each algorithm after 600 evaluations are averaged over 20 independent trials and are statistically compared to those obtained by RECAS.
 
-[supplemental/Figure_1.pdf]()
+[supplemental/Figure_1.png]()
 
-[supplemental/Figure_2.pdf]()
+[supplemental/Figure_2.png]()
 
-[supplemental/Figure_3.pdf]()
+[supplemental/Figure_3.png]()
 
 
 
