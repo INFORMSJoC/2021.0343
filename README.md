@@ -60,7 +60,7 @@ pip install pySOT
 2. Install RECASOpt package to your local environment
 
 ```
-pip install git+https://github.com/WY-Wang/2021.0343/src.git
+pip install git+https://github.com/WY-Wang/2021.0343.git
 ```
 
 
