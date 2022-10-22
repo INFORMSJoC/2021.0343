@@ -60,30 +60,12 @@ pip install pySOT
 2. Install RECASOpt package to your local environment
 
 ```
-pip install git+https://github.com/WY-Wang/RECASOpt.git
+pip install git+https://github.com/WY-Wang/2021.0343.git
 ```
 
 
 
 ## Repository Structure
-
-### src folder
-All the codes for the RECAS algorithm are collected in the RECASOpt subfolder, in which
-
-[algorithm/multiobjective_strategies.py](https://github.com/WY-Wang/2021.0343/blob/master/src/RECASOpt/algorithm/multiobjective_strategies.py) implements the main surrogate-assisted framework of RECAS including initialization and iteration phases.
-
-[optimize/optimization.py](https://github.com/WY-Wang/2021.0343/blob/master/src/RECASOpt/optimize/optimization.py) implements 
-
-[problems/multiobjective_problems.py](https://github.com/WY-Wang/2021.0343/blob/master/src/RECASOpt/problems/multiobjective_problems.py) implements
-
-[utils/multiobjective_archives](https://github.com/WY-Wang/2021.0343/blob/master/src/RECASOpt/utils/multiobjective_archives.py)
-
-[utils/multiobjective_sampling](https://github.com/WY-Wang/2021.0343/blob/master/src/RECASOpt/utils/multiobjective_sampling.py)
-
-[utils/multiobjective_utilities](https://github.com/WY-Wang/2021.0343/blob/master/src/RECASOpt/utils/multiobjective_utilities.py)
-
-### scripts folder
-[experiment.py](https://github.com/WY-Wang/2021.0343/blob/master/scripts/experiment.py) shows an example for setting up test problem and RECAS algorithm for numerical experiments.
 
 ### results folder
 
@@ -100,6 +82,24 @@ All the codes for the RECAS algorithm are collected in the RECASOpt subfolder, i
 [supplemental/Figure_2.png](https://github.com/WY-Wang/2021.0343/blob/master/results/supplemental/Figure_2.png) (i.e., Figure 2 in the supplementary material) shows the average IGD progress curves (against the number of iterations) for RECAS with batch size being 2, 5, 10, 15, ane 20 on DTLZ2 test problems with 2 to 10 objectives. 
 
 [supplemental/Figure_3.png](https://github.com/WY-Wang/2021.0343/blob/master/results/supplemental/Figure_3.png) (i.e., Figure 3 in the supplementary material) shows the box plots of IGD, Hypervolume (HV), and the number of non-dominated solutions (NS) obtained by four algorithms after 600 evaluations on TBrook1 and TBrook2 problems.
+
+### scripts folder
+[experiment.py](https://github.com/WY-Wang/2021.0343/blob/master/scripts/experiment.py) shows an example for setting up test problem and RECAS algorithm for numerical experiments.
+
+### src folder
+All the codes for the RECAS algorithm are collected in the RECASOpt subfolder:
+
+[algorithm/multiobjective_strategies.py](https://github.com/WY-Wang/2021.0343/blob/master/src/RECASOpt/algorithm/multiobjective_strategies.py) implements the RECAS strategy class that starts with sample_init() method (i.e., initilization phase) and then automatically executes the generate_evals(num_pts) method by iterations (i.e., iteration phase). Inheriting from SurrogateBaseStrategy in pySOT, the RECA strategy supports running in serial and batch synchronous parallel.
+
+[optimize/optimization.py](https://github.com/WY-Wang/2021.0343/blob/master/src/RECASOpt/optimize/optimization.py) provides the method to set up the user-defined experiemtal parameters, test problem, experimental design method and surrogate model for RECAS and initiate a single algorithm run.
+
+[problems/multiobjective_problems.py](https://github.com/WY-Wang/2021.0343/blob/master/src/RECASOpt/problems/multiobjective_problems.py) implements several multi-objective test problem classes based on the OptimizationProblem class in pySOT.
+
+[utils/multiobjective_archives](https://github.com/WY-Wang/2021.0343/blob/master/src/RECASOpt/utils/multiobjective_archives.py) implements the class for recording the evaluation information related to a point and the class for archiving the non-dominated set and front of all previoiusly evaluated points.
+
+[utils/multiobjective_sampling](https://github.com/WY-Wang/2021.0343/blob/master/src/RECASOpt/utils/multiobjective_sampling.py) implements the method to generate a group of candidates given a center point and the surrogate-assisted method to select one promising candidate for expensive evaluation
+
+[utils/multiobjective_utilities](https://github.com/WY-Wang/2021.0343/blob/master/src/RECASOpt/utils/multiobjective_utilities.py) implements other auxiliary tools used in RECAS.
 
 
 
