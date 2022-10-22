@@ -61,7 +61,6 @@ pip install pySOT
 
 ```
 pip install git+https://github.com/WY-Wang/2021.0343.git#subdirectory=src
-
 ```
 
 
