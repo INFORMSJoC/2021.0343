@@ -67,11 +67,6 @@ pip install git+https://github.com/WY-Wang/RECASOpt.git
 
 ## Repository Structure
 
-### results folder
-
-### scripts folder
-[experiment.py](https://github.com/WY-Wang/2021.0343/blob/master/scripts/experiment.py) shows an example for setting up test problem and RECAS algorithm for numerical experiments.
-
 ### src folder
 All the codes for the RECAS algorithm are collected in the RECASOpt subfolder, in which
 
@@ -86,6 +81,25 @@ All the codes for the RECAS algorithm are collected in the RECASOpt subfolder, i
 [utils/multiobjective_sampling](https://github.com/WY-Wang/2021.0343/blob/master/src/RECASOpt/utils/multiobjective_sampling.py)
 
 [utils/multiobjective_utilities](https://github.com/WY-Wang/2021.0343/blob/master/src/RECASOpt/utils/multiobjective_utilities.py)
+
+### scripts folder
+[experiment.py](https://github.com/WY-Wang/2021.0343/blob/master/scripts/experiment.py) shows an example for setting up test problem and RECAS algorithm for numerical experiments.
+
+### results folder
+
+[main/Figure_4.pdf]()
+
+[main/Figure_5.pdf]()
+
+[main/Table_2.png]()
+
+[main/Table_3.png]()
+
+[supplemental/Figure_1.pdf]()
+
+[supplemental/Figure_2.pdf]()
+
+[supplemental/Figure_3.pdf]()
 
 
 
