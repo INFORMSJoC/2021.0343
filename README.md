@@ -5,9 +5,23 @@
 This archive is distributed in association with the [INFORMS Journal on Computing](https://pubsonline.informs.org/journal/ijoc) under
 the [MIT License](LICENSE).
 
-## Cite
+To cite this material, please cite this repository, using the following DOI.
 
-The final version of this repository, with updated bibliographical information, is available at [GitHub](https://github.com/INFORMSJoC/2021.0343).
+[![DOI](https://zenodo.org/badge/554791093.svg)](https://zenodo.org/badge/latestdoi/554791093)
+
+Below is the BibTex for citing this version of the code.
+
+```
+@article{RefVecCSASManyObjective2022,
+  author =        {Wang, Wenyu and Shoemaker, Christine},
+  publisher =     {INFORMS Journal on Computing},
+  title =         {Reference Vector Assisted Candidate Search with Aggregated Surrogate for Computationally Expensive Many Objective
+                   Optimization Problems},
+  year =          {2022},
+  doi =           { 10.5281/zenodo.7243971},
+  url =           {https://github.com/INFORMSJoC/2021.0343},
+}  
+```
 
 
 ## Introduction
