@@ -5,7 +5,32 @@ from pySOT.optimization_problems import OptimizationProblem
 
 
 class DTLZ(OptimizationProblem):
+    """Parent class for all DTLZ test problems.
+    Note: the subclass of DTLZ must implement eval() method for computing objective values
+    """
     def __init__(self, nobj = 2, dim = None):
+        """
+        Args:
+            nobj: int
+                Number of objective functions
+            dim: int
+                Number of decision variables
+        Others:
+            lb: numpy.ndarray
+                Lower bounds for decision variables
+            ub: numpy.ndarray
+                Upper bounds for decision variables
+            int_var: list
+                Indices for integer variables
+            cont_var: list
+                indices for continuous variables
+            records: Record
+                Set of records that store the evaluation information of a point
+            minpt: numpy.ndarray
+                A point with each element being the minimum value found so far
+            maxpt: numpy.ndarray
+                A point with each element being the maximum value found so far
+        """
         if dim is None: dim = nobj + 4
         self.dim = dim
         self.nobj = nobj

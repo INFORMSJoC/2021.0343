@@ -13,6 +13,26 @@ INF = float('inf')
 
 
 class RECAS(BaseStrategy):
+    """RECAS Optimization strategy.
+    This is an implementation of the RECAS algorithm by Wang and Shoemaker
+
+    This strategy follows an iterative surrogate-assisted framework:
+    === Initialization Phase ===
+    1.  Construct reference vectors
+    2.  Generate initial points by experimental design
+
+    === Iteration Phase ===
+    3.  Repeat until maximum number of evaluations is reached:
+    4.      Adapt reference vectors
+    5.      identify center reference vectors by classification
+    6.      Assign evaluated points to center reference vectors
+    7.      For each center reference vector:
+    8.          Select a center point under the guidance of the center reference vector
+    9.         Build surrogate for the Angle Penalized Distance indicator
+    10.         Generate a group of candidates around the center point
+    11.         Use surrogate to select one candidate for expensive evaluation
+    12.     Update archive for non-dominated set and front
+    """
     __metaclass__ = abc.ABCMeta
 
     def __init__(
@@ -27,6 +47,27 @@ class RECAS(BaseStrategy):
         asynchronous = True,
         interactive2D = False,
     ):
+        """
+        Args:
+            max_evals: int
+                Maximum number of evaluations
+            opt_prob: pySOT.OptimizationProblem
+                Instance of an optimization problem
+            exp_design: pySOT.ExperimentalDesign
+                Instance of an experimental design method
+            surrogate: pySOT.Surrogate
+                Instance of a surrogate model
+            batch_size: int
+                Size of batch in each iteration
+            extra_points: numpy.ndarray
+                Extra points to add to the experimental design
+            extra_vals: numpy.ndarray
+                Objective vectors for extra_points
+            asynchronous: bool
+                Whether to use asynchronous parallel or not
+            interactive2D: bool
+                Whether plot non-dominated front (for bi-objective case only) or not
+        """
         self.asynchronous = asynchronous
         self.interactive2D = interactive2D
         self.batch_size = batch_size
@@ -86,6 +127,7 @@ class RECAS(BaseStrategy):
     # todo: Processing in initial phase
 
     def sample_initial(self):
+        """Initialization Phase."""
         self.construct_RVs()
 
         start_sample = self.exp_design.generate_points(
@@ -166,6 +208,11 @@ class RECAS(BaseStrategy):
     # todo: Processing in adaptive phase
 
     def generate_evals(self, num_pts):
+        """Iteration Phase.
+        Args:
+            num_pts: int
+                Number of points to be selected for evaluation in the current iteration
+        """
         print('Number of evaluations completed = {}'.format(self.num_evals))
 
         self.update_parameters()
@@ -292,10 +339,23 @@ class RECAS(BaseStrategy):
         self.Xpend = np.delete(self.Xpend, idx, axis=0)
 
     def angle(self, rA, rB):
+        """Calculate the angle between two vectors
+        Args:
+            rA: numpy.ndarray
+                The first input vector
+            rB: numpy.ndarray
+                The second input vector
+        Returns:
+            A float-type value for the angle between rA and rB
+        """
         temp = rA.dot(rB) / np.sqrt(rA.dot(rA)) * np.sqrt(rB.dot(rB))
         return np.arccos(min(max(1e-6, temp), 1.0 - 1e-6))
 
     def construct_RVs(self):
+        """Construct reference vectors
+        self.fixed_RVs stores the set of uniform-distributed reference vectors
+        self.adapt_RVs stores the set of reference vectors after adaption
+        """
         self.fixed_RVs = uniform_points(exp_npoints=self.num_RVs, nobj=self.opt_prob.nobj)
         self.num_RVs = len(self.fixed_RVs)
         for i in range(self.num_RVs):
@@ -304,6 +364,8 @@ class RECAS(BaseStrategy):
         self.adapt_RVs = np.copy(self.fixed_RVs)
 
     def update_parameters(self):
+        """Adapt reference vectors and update archive
+        """
         self.archive.reset()
         for record in self.opt_prob.records:
             self.archive.add(record=record)
@@ -318,11 +380,17 @@ class RECAS(BaseStrategy):
             RV[:] = np.divide(RV, np.sqrt(RV.dot(RV)))
 
     def cluster_center_selection(self):
+        """Select the center reference vectors
+        """
+        # Construct base population to determine active vectors
         population = []
         for i in range(self.num_evals - 1, max([self.num_evals - self.exp_design.num_pts, -1]), -1):
             population.append(self.opt_prob.records[i])
 
+        # Assign evaluated points in population to adaptive reference vectors
         active_index, inactive_index = self.assign_to_reference_vectors(population, self.adapt_RVs)
+
+        # Determine the center reference vectors
         if len(inactive_index) > len(active_index):
             nclusters = min([self.batch_size, len(inactive_index)])
             self.active_RVs = np.copy([self.adapt_RVs[i][:] for i in inactive_index])
@@ -342,6 +410,12 @@ class RECAS(BaseStrategy):
             self.cluster_centers.append(np.copy(self.adapt_RVs[index[-1]]))
 
     def candidate_generation_and_selection(self):
+        """Surrogate-assisted candidate search.
+        This search method is composed of three steps:
+        1.  Identify a center point under the guidance of a center reference vector
+        2.  Generate a group of candidates around the center point
+        3.  Select one candidate based on the surrogate built for APD indicator
+        """
         self.assign_to_reference_vectors(self.opt_prob.records, self.cluster_centers)
         self.centers = []
         self.pairs = []
@@ -371,7 +445,7 @@ class RECAS(BaseStrategy):
                     self.centers.append(self.opt_prob.records[APD_zip[j][1]])
                     break
 
-            # todo: fit local surrogates
+            # Fit local surrogates
             distance_zip = [[scp.distance.euclidean(self.opt_prob.records[j].x[:], self.centers[-1].x[:]), j] for j in range(len(self.opt_prob.records))]
             distance_zip.sort(key=lambda x: x[0], reverse=False)
 
@@ -379,7 +453,7 @@ class RECAS(BaseStrategy):
             for j in range(min([len(self.opt_prob.records), 400])):
                 self.aggregated_surrogate.add_points(xx=self.opt_prob.records[distance_zip[j][1]].x[:], fx=APD[distance_zip[j][1]])
 
-            # todo: generate candidates
+            # Generate candidates and select one for evaluation
             new_cand = candidate_dycors(
                 num_pts=1,
                 opt_prob=self.opt_prob,
