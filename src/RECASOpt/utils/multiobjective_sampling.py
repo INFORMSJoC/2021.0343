@@ -4,6 +4,25 @@ import scipy.spatial as scpspatial
 
 
 def weighted_distance_merit(num_pts, surrogate, X, cand, weights, Xpend=None, dtol=1e-3):
+    """Compute the weighted score for candidates
+    Args:
+        num_pts: int
+            Number of points to generate
+        surrogate: pySOT.Surrogate
+            Instance of a surrogate model
+        X: numpy.ndarray
+            Previously Evaluated points
+        cand: numpy.ndarray
+            Candidates points to select from
+        weights: list
+            Weight used to compute weighted score
+        Xpend: numpy.ndarray
+            Points pending evaluations
+        dtol: float
+            Minimum distance between evaluated and pending points
+    Returns:
+        num_pts numpy.ndarray-type candidates for evaluation
+    """
     dim = X.shape[1]
     if Xpend is None or len(Xpend) == 0:
         Xpend = np.empty([0, dim])
@@ -32,6 +51,37 @@ def weighted_distance_merit(num_pts, surrogate, X, cand, weights, Xpend=None, dt
 
 
 def candidate_dycors(num_pts, opt_prob, surrogate, xbest, X, weights, init_evals, max_evals, evals, sampling_radius, Xpend=None, subset=None, dtol=1e-3):
+    """Generate a group of candidates
+    Args:
+        num_pts: int
+            Number of points to generate
+        opt_prob: pySOT.OptimizationProblem
+            Instance of an optimization problem
+        surrogate: pySOT.Surrogate
+            Instance of a surrogate model
+        xbest: numpy.ndarray
+            The point around which candidates are generated
+        X: numpy.array
+            Previously evaluated points
+        weights: list
+            Weight used to compute weighted score
+        init_evals: int
+            Initial number of evaluations
+        max_evals: int
+            Maximum number of evaluations
+        evals: int
+            Number of evaluations completed
+        sampling_radius: float
+            Perturbation radius
+        Xpend: numpy.ndarray
+            Points pending evaluations
+        subset: list
+            Coordinates that should be perturbed
+        dtol: float
+            Minimum distance between evaluated and pending points
+    Returns:
+        num_pts numpy.ndarray-type candidates for evaluation
+    """
     num_cand = 100*opt_prob.dim
 
     if subset is None:
