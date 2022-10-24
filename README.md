@@ -36,8 +36,7 @@ objectives, commonly exist in real-world applications. Without loss of generalit
 $$ \min_{\mathbf{x} \in \mathcal{D}} \mathbf{f}(\mathbf{x}) = \[f_1(\mathbf{x}), \dots, f_k(\mathbf{x})\]^T $$
 
 where $\mathbf{x}$ denotes a vector composed of $d$ decision variables. The search space $\mathcal{D}$ denotes a hypercube in $\mathbb{R}^d$ and it is
-bounded by a lower bound $\mathbf{l}$ and a upper bound $\mathbf{u} \in \mathbb{R}^d$. $\mathbf{f}$ is composed of $k$ objective functions with $f_i :
-\mathbb{R}^d \rightarrow \mathbb{R}$ representing the $i$-th objective to be optimized, $i = 1, \dots, k$. In the literature, MOPs with more than
+bounded by a lower bound $\mathbf{l}$ and a upper bound $\mathbf{u} \in \mathbb{R}^d$. $\mathbf{f}$ is composed of $k$ objective functions with $f_i$ representing the $i$-th objective to be optimized, $i = 1, \dots, k$. In the literature, MOPs with more than
 three objectives are also known as Many-objective Optimization Problems (MaOPs).
 
 The codes in this repo implement an effective Radial Basis Function (RBF) surrogate-assisted algorithm named **RECAS** for computationally expensive
@@ -126,8 +125,7 @@ Number of evaluations completed = 134
 ......
 ```
 
-Once a trial on DTLZ2(nobj=2, dim=10) is completed, the algorithm will automatically generate a separate result file, each row of which is composed 
-of a point (the first 10 columns) and its corresponding objective vector (the last 2 columns). Here are the first 10 rows in a result file:
+Once a trial on DTLZ2(nobj=2, dim=10) is completed, the algorithm will automatically generate a separate result file (.txt), each row of which is composed of a point (the first 10 columns) and its corresponding objective vector (the last 2 columns). Here are the first 10 rows in a result file:
 ```text
 1.855699321102256272e-01 8.424419023429166042e-01 6.217761832726059756e-01 9.715319886143165551e-01 2.727913608860354500e-01 3.420138389999665129e-01 4.131355367929151479e-01 9.555960537820530343e-01 3.126903495436407221e-01 3.030895852559572501e-01 1.647437322477533606e+00 4.942954356867825250e-01
 3.642461134171878223e-01 7.486242170770491811e-01 1.891040567340959710e-01 2.932352853580730834e-01 3.794598906465902477e-01 4.431765525725954724e-01 7.323291443703634496e-01 7.175164010598548137e-01 9.503106953571850424e-01 8.628671473340784326e-01 1.391184300842630783e+00 8.959438146411728976e-01
