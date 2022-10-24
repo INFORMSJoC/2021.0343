@@ -5,10 +5,6 @@
 This archive is distributed in association with the [INFORMS Journal on Computing](https://pubsonline.informs.org/journal/ijoc) under
 the [MIT License](LICENSE).
 
-The software and data in this repository are a snapshot of the software and data that were used in the research reported on in the
-paper: [Reference Vector Assisted Candidate Search with Aggregated Surrogate for Computationally Expensive Many Objective Optimization Problems]() by
-Wenyu Wang and Christine A. Shoemaker.
-
 ## Cite
 
 To cite this software, please cite the [paper](https://doi.org/10.1287/ijoc.2019.0934) using its DOI and the software itself, using the following DOI.
@@ -59,7 +55,7 @@ pip install pySOT
 2. Install RECASOpt package to your local environment
 
 ```
-pip install git+https://github.com/WY-Wang/2021.0343.git#subdirectory=src
+pip install git+https://github.com/INFORMSJoC/2021.0343.git#subdirectory=src
 ```
 
 ## Using RECAS
@@ -204,8 +200,8 @@ auxiliary tools used in RECAS.
 
 ## Ongoing Development
 
-This code is being developed on an on-going basis at the author's [Github site](https://github.com/WY-Wang/2021.0343).
+This code is being developed on an on-going basis at the author's [Github site](https://github.com/WY-Wang/RECASOpt).
 
 ## Support
 
-For support in using this software, submit an [issue](https://github.com/WY-Wang/2021.0343/issues/new).
+For support in using this software, submit an [issue](https://github.com/WY-Wang/RECASOpt/issues/new).
