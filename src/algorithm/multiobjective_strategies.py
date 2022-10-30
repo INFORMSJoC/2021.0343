@@ -6,7 +6,7 @@ import scipy.spatial as scp
 from poap.strategy import BaseStrategy, Proposal
 from ..utils.multiobjective_archives import Record, FrontArchive, SimpleFrontArchive
 from ..utils.multiobjective_utilities import uniform_points, radius_rule
-from ..utils.multiobjective_sampling import candidate_dycors
+from ..algorithm.multiobjective_sampling import candidate_dycors
 from sklearn.cluster import KMeans
 
 INF = float('inf')

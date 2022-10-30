@@ -46,16 +46,9 @@ its [toolbox documentation](http://pysot.readthedocs.io/) or refer to the corres
 paper [David Eriksson, David Bindel, Christine A. Shoemaker. pySOT and POAP: An event-driven asynchronous framework for surrogate optimization. arXiv preprint arXiv:1908.00420, 2019](https://doi.org/10.48550/arXiv.1908.00420)
 .
 
-1. In a virtual environment with Python 3.4 or newer, pySOT can be installed via
-
+In a virtual environment with Python 3.4 or newer, RECASOpt package can be installed by
 ```
-pip install pySOT
-```
-
-2. Install RECASOpt package to your local environment
-
-```
-pip install git+https://github.com/INFORMSJoC/2021.0343.git#subdirectory=src
+pip install git+https://github.com/WY-Wang/RECASOpt.git
 ```
 
 ## Using RECAS
@@ -175,12 +168,13 @@ algorithm for numerical experiments.
 
 ### src folder
 
-All the codes for the RECAS algorithm are collected in the RECASOpt subfolder:
-
 [algorithm/multiobjective_strategies.py](https://github.com/INFORMSJoC/2021.0343/blob/master/src/RECASOpt/algorithm/multiobjective_strategies.py)
 implements the RECAS strategy class that starts with sample_init() method (i.e., initilization phase) and then automatically executes the
 generate_evals(num_pts) method by iterations (i.e., iteration phase). Inheriting from SurrogateBaseStrategy in pySOT, the RECA strategy supports
 running in serial and batch synchronous parallel.
+
+[algorithm/multiobjective_sampling.py](https://github.com/INFORMSJoC/2021.0343/blob/master/src/RECASOpt/utils/multiobjective_sampling.py) implements the method
+to generate a group of candidates given a center point and the surrogate-assisted method to select one promising candidate for expensive evaluation
 
 [optimize/optimization.py](https://github.com/INFORMSJoC/2021.0343/blob/master/src/RECASOpt/optimize/optimization.py) provides the method to set up the
 user-defined experiemtal parameters, test problem, experimental design method and surrogate model for RECAS and initiate a single algorithm run.
@@ -188,14 +182,11 @@ user-defined experiemtal parameters, test problem, experimental design method an
 [problems/multiobjective_problems.py](https://github.com/INFORMSJoC/2021.0343/blob/master/src/RECASOpt/problems/multiobjective_problems.py) implements
 several multi-objective test problem classes based on the OptimizationProblem class in pySOT.
 
-[utils/multiobjective_archives](https://github.com/INFORMSJoC/2021.0343/blob/master/src/RECASOpt/utils/multiobjective_archives.py) implements the class
+[utils/multiobjective_archives.py](https://github.com/INFORMSJoC/2021.0343/blob/master/src/RECASOpt/utils/multiobjective_archives.py) implements the class
 for recording the evaluation information related to a point and the class for archiving the non-dominated set and front of all previoiusly evaluated
 points.
 
-[utils/multiobjective_sampling](https://github.com/INFORMSJoC/2021.0343/blob/master/src/RECASOpt/utils/multiobjective_sampling.py) implements the method
-to generate a group of candidates given a center point and the surrogate-assisted method to select one promising candidate for expensive evaluation
-
-[utils/multiobjective_utilities](https://github.com/INFORMSJoC/2021.0343/blob/master/src/RECASOpt/utils/multiobjective_utilities.py) implements other
+[utils/multiobjective_utilities.py](https://github.com/INFORMSJoC/2021.0343/blob/master/src/RECASOpt/utils/multiobjective_utilities.py) implements other
 auxiliary tools used in RECAS.
 
 ## Ongoing Development
