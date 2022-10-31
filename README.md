@@ -133,33 +133,35 @@ Once a trial on DTLZ2(nobj=2, dim=10) is completed, the algorithm will automatic
 
 ### results folder
 
-[main/Figure_4.png](https://github.com/INFORMSJoC/2021.0343/blob/master/results/main/Figure_4.png) (i.e., Figure 4 in the main paper) shows the best and
+[parameter_analysis/batch_size.pdf](https://github.com/INFORMSJoC/2021.0343/blob/master/results/parameter_analysis/batch_size.pdf) (i.e., Figure 2 in the supplementary
+material) shows the average IGD progress curves (against the number of iterations) for RECAS with batch size being 2, 5, 10, 15, ane 20 on DTLZ2 test
+problems with 2 to 10 objectives.
+
+[parameter_analysis/initial_size.pdf](https://github.com/INFORMSJoC/2021.0343/blob/master/results/parameter_analysis/initial_size.pdf) (i.e., Figure 1 in the supplementary
+material) shows the average IGD progress curves (against the number of evaluations) for RCAS with $2d-1$, $5d-1$, $11d-1$, and $15d-1$ initial points
+on DTLZ2 test problems with 2 to 10 objectives.
+
+[results_on_tbrook/tbrook_box_plots.pdf](https://github.com/INFORMSJoC/2021.0343/blob/master/results/results_on_tbrook/tbrook_box_plots.pdf) (i.e., Figure 3 in the supplementary
+material) shows the box plots of IGD, Hypervolume (HV), and the number of non-dominated solutions (NS) obtained by four algorithms after 600
+evaluations on TBrook1 and TBrook2 problems.
+
+[results_on_test_suites/dtlz6_fronts.pdf](https://github.com/INFORMSJoC/2021.0343/blob/master/results/results_on_test_suites/dtlz6_fronts.pdf) (i.e., Figure 4 in the main paper) shows the best and
 worst non-dominated fronts obtained by seven algorithms among 20 indepedent trials on bi-objective DTLZ6.
 
-[main/Figure_5.png](https://github.com/INFORMSJoC/2021.0343/blob/master/results/main/Figure_5.png) (i.e., Figure 5 in the main paper) shows the average
+[results_on_test_suites/dtlz_data_profile.pdf](https://github.com/INFORMSJoC/2021.0343/blob/master/results/results_on_test_suites/dtlz_data_profile.pdf) (i.e., Figure 5 in the main paper) shows the average
 data profiles with error bars for seven algorithms on DTLZ problem sets with 10 and 20 decision variables.
 
-[main/Table_2.png](https://github.com/INFORMSJoC/2021.0343/blob/master/results/main/Table_2.png) (i.e., Table 2 in the main paper) collects the numerical
+[results_on_test_suites/dtlz_10d_table.pdf](https://github.com/INFORMSJoC/2021.0343/blob/master/results/results_on_test_suites/dtlz_10d_table.pdf) (i.e., Table 2 in the main paper) collects the numerical
 results of seven algorithms over DTLZ1 to DTLZ7 where the number of decision variales is 10 and the number of objectives varies from 2 to 10. The IGD
 indicator values obtained by each algorithm after 300 evaluations are averaged over 20 independent trials and are statistically compared to those
 obtained by RECAS.
 
-[main/Table_3.png](https://github.com/INFORMSJoC/2021.0343/blob/master/results/main/Table_3.png) (i.e., Table 3 in the main paper) collects the numerical
+[results_on_test_suites/dtlz_20d_table.pdf](https://github.com/INFORMSJoC/2021.0343/blob/master/results/results_on_test_suites/dtlz_20d_table.pdf) (i.e., Table 3 in the main paper) collects the numerical
 results of seven algorithms over DTLZ1 to DTLZ7 where the number of decision variales is 20 and the number of objectives varies from 2 to 10. The IGD
 indicator values obtained by each algorithm after 600 evaluations are averaged over 20 independent trials and are statistically compared to those
 obtained by RECAS.
 
-[supplemental/Figure_1.png](https://github.com/INFORMSJoC/2021.0343/blob/master/results/supplemental/Figure_1.png) (i.e., Figure 1 in the supplementary
-material) shows the average IGD progress curves (against the number of evaluations) for RCAS with $2d-1$, $5d-1$, $11d-1$, and $15d-1$ initial points
-on DTLZ2 test problems with 2 to 10 objectives.
-
-[supplemental/Figure_2.png](https://github.com/INFORMSJoC/2021.0343/blob/master/results/supplemental/Figure_2.png) (i.e., Figure 2 in the supplementary
-material) shows the average IGD progress curves (against the number of iterations) for RECAS with batch size being 2, 5, 10, 15, ane 20 on DTLZ2 test
-problems with 2 to 10 objectives.
-
-[supplemental/Figure_3.png](https://github.com/INFORMSJoC/2021.0343/blob/master/results/supplemental/Figure_3.png) (i.e., Figure 3 in the supplementary
-material) shows the box plots of IGD, Hypervolume (HV), and the number of non-dominated solutions (NS) obtained by four algorithms after 600
-evaluations on TBrook1 and TBrook2 problems.
+[supplementary_material.pfd](https://github.com/INFORMSJoC/2021.0343/blob/master/results/supplementary_material.pdf) is the online supplementary material for the RECAS paper.
 
 ### scripts folder
 
