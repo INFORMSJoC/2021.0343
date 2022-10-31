@@ -46,16 +46,9 @@ its [toolbox documentation](http://pysot.readthedocs.io/) or refer to the corres
 paper [David Eriksson, David Bindel, Christine A. Shoemaker. pySOT and POAP: An event-driven asynchronous framework for surrogate optimization. arXiv preprint arXiv:1908.00420, 2019](https://doi.org/10.48550/arXiv.1908.00420)
 .
 
-1. In a virtual environment with Python 3.4 or newer, pySOT can be installed via
-
+In a virtual environment with Python 3.4 or newer, RECASOpt package can be installed by
 ```
-pip install pySOT
-```
-
-2. Install RECASOpt package to your local environment
-
-```
-pip install git+https://github.com/INFORMSJoC/2021.0343.git#subdirectory=src
+pip install git+https://github.com/WY-Wang/RECASOpt.git
 ```
 
 ## Using RECAS
@@ -140,33 +133,35 @@ Once a trial on DTLZ2(nobj=2, dim=10) is completed, the algorithm will automatic
 
 ### results folder
 
-[main/Figure_4.png](https://github.com/INFORMSJoC/2021.0343/blob/master/results/main/Figure_4.png) (i.e., Figure 4 in the main paper) shows the best and
+[parameter_analysis/batch_size.pdf](https://github.com/INFORMSJoC/2021.0343/blob/master/results/parameter_analysis/batch_size.pdf) (i.e., Figure 2 in the supplementary
+material) shows the average IGD progress curves (against the number of iterations) for RECAS with batch size being 2, 5, 10, 15, ane 20 on DTLZ2 test
+problems with 2 to 10 objectives.
+
+[parameter_analysis/initial_size.pdf](https://github.com/INFORMSJoC/2021.0343/blob/master/results/parameter_analysis/initial_size.pdf) (i.e., Figure 1 in the supplementary
+material) shows the average IGD progress curves (against the number of evaluations) for RCAS with $2d-1$, $5d-1$, $11d-1$, and $15d-1$ initial points
+on DTLZ2 test problems with 2 to 10 objectives.
+
+[results_on_tbrook/tbrook_box_plots.pdf](https://github.com/INFORMSJoC/2021.0343/blob/master/results/restuls_on_tbrook/tbrook_box_plots.pdf) (i.e., Figure 3 in the supplementary
+material) shows the box plots of IGD, Hypervolume (HV), and the number of non-dominated solutions (NS) obtained by four algorithms after 600
+evaluations on TBrook1 and TBrook2 problems.
+
+[results_on_test_suites/dtlz6_fronts.pdf](https://github.com/INFORMSJoC/2021.0343/blob/master/results/results_on_test_suites/dtlz6_fronts.pdf) (i.e., Figure 4 in the main paper) shows the best and
 worst non-dominated fronts obtained by seven algorithms among 20 indepedent trials on bi-objective DTLZ6.
 
-[main/Figure_5.png](https://github.com/INFORMSJoC/2021.0343/blob/master/results/main/Figure_5.png) (i.e., Figure 5 in the main paper) shows the average
+[results_on_test_suites/dtlz_data_profile.pdf](https://github.com/INFORMSJoC/2021.0343/blob/master/results/results_on_test_suites/dtlz_data_profile.pdf) (i.e., Figure 5 in the main paper) shows the average
 data profiles with error bars for seven algorithms on DTLZ problem sets with 10 and 20 decision variables.
 
-[main/Table_2.png](https://github.com/INFORMSJoC/2021.0343/blob/master/results/main/Table_2.png) (i.e., Table 2 in the main paper) collects the numerical
+[results_on_test_suites/dtlz_10d_table.pdf](https://github.com/INFORMSJoC/2021.0343/blob/master/results/results_on_test_suites/dtlz_10d_table.pdf) (i.e., Table 2 in the main paper) collects the numerical
 results of seven algorithms over DTLZ1 to DTLZ7 where the number of decision variales is 10 and the number of objectives varies from 2 to 10. The IGD
 indicator values obtained by each algorithm after 300 evaluations are averaged over 20 independent trials and are statistically compared to those
 obtained by RECAS.
 
-[main/Table_3.png](https://github.com/INFORMSJoC/2021.0343/blob/master/results/main/Table_3.png) (i.e., Table 3 in the main paper) collects the numerical
+[results_on_test_suites/dtlz_20d_table.pdf](https://github.com/INFORMSJoC/2021.0343/blob/master/results/results_on_test_suites/dtlz_20d_table.pdf) (i.e., Table 3 in the main paper) collects the numerical
 results of seven algorithms over DTLZ1 to DTLZ7 where the number of decision variales is 20 and the number of objectives varies from 2 to 10. The IGD
 indicator values obtained by each algorithm after 600 evaluations are averaged over 20 independent trials and are statistically compared to those
 obtained by RECAS.
 
-[supplemental/Figure_1.png](https://github.com/INFORMSJoC/2021.0343/blob/master/results/supplemental/Figure_1.png) (i.e., Figure 1 in the supplementary
-material) shows the average IGD progress curves (against the number of evaluations) for RCAS with $2d-1$, $5d-1$, $11d-1$, and $15d-1$ initial points
-on DTLZ2 test problems with 2 to 10 objectives.
-
-[supplemental/Figure_2.png](https://github.com/INFORMSJoC/2021.0343/blob/master/results/supplemental/Figure_2.png) (i.e., Figure 2 in the supplementary
-material) shows the average IGD progress curves (against the number of iterations) for RECAS with batch size being 2, 5, 10, 15, ane 20 on DTLZ2 test
-problems with 2 to 10 objectives.
-
-[supplemental/Figure_3.png](https://github.com/INFORMSJoC/2021.0343/blob/master/results/supplemental/Figure_3.png) (i.e., Figure 3 in the supplementary
-material) shows the box plots of IGD, Hypervolume (HV), and the number of non-dominated solutions (NS) obtained by four algorithms after 600
-evaluations on TBrook1 and TBrook2 problems.
+[supplementary_material.pfd](https://github.com/INFORMSJoC/2021.0343/blob/master/results/supplementary_material.pdf) is the online supplementary material for the RECAS paper.
 
 ### scripts folder
 
@@ -175,12 +170,13 @@ algorithm for numerical experiments.
 
 ### src folder
 
-All the codes for the RECAS algorithm are collected in the RECASOpt subfolder:
-
 [algorithm/multiobjective_strategies.py](https://github.com/INFORMSJoC/2021.0343/blob/master/src/RECASOpt/algorithm/multiobjective_strategies.py)
 implements the RECAS strategy class that starts with sample_init() method (i.e., initilization phase) and then automatically executes the
 generate_evals(num_pts) method by iterations (i.e., iteration phase). Inheriting from SurrogateBaseStrategy in pySOT, the RECA strategy supports
 running in serial and batch synchronous parallel.
+
+[algorithm/multiobjective_sampling.py](https://github.com/INFORMSJoC/2021.0343/blob/master/src/RECASOpt/algorithm/multiobjective_sampling.py) implements the method
+to generate a group of candidates given a center point and the surrogate-assisted method to select one promising candidate for expensive evaluation
 
 [optimize/optimization.py](https://github.com/INFORMSJoC/2021.0343/blob/master/src/RECASOpt/optimize/optimization.py) provides the method to set up the
 user-defined experiemtal parameters, test problem, experimental design method and surrogate model for RECAS and initiate a single algorithm run.
@@ -188,14 +184,11 @@ user-defined experiemtal parameters, test problem, experimental design method an
 [problems/multiobjective_problems.py](https://github.com/INFORMSJoC/2021.0343/blob/master/src/RECASOpt/problems/multiobjective_problems.py) implements
 several multi-objective test problem classes based on the OptimizationProblem class in pySOT.
 
-[utils/multiobjective_archives](https://github.com/INFORMSJoC/2021.0343/blob/master/src/RECASOpt/utils/multiobjective_archives.py) implements the class
+[utils/multiobjective_archives.py](https://github.com/INFORMSJoC/2021.0343/blob/master/src/RECASOpt/utils/multiobjective_archives.py) implements the class
 for recording the evaluation information related to a point and the class for archiving the non-dominated set and front of all previoiusly evaluated
 points.
 
-[utils/multiobjective_sampling](https://github.com/INFORMSJoC/2021.0343/blob/master/src/RECASOpt/utils/multiobjective_sampling.py) implements the method
-to generate a group of candidates given a center point and the surrogate-assisted method to select one promising candidate for expensive evaluation
-
-[utils/multiobjective_utilities](https://github.com/INFORMSJoC/2021.0343/blob/master/src/RECASOpt/utils/multiobjective_utilities.py) implements other
+[utils/multiobjective_utilities.py](https://github.com/INFORMSJoC/2021.0343/blob/master/src/RECASOpt/utils/multiobjective_utilities.py) implements other
 auxiliary tools used in RECAS.
 
 ## Ongoing Development
