@@ -141,7 +141,7 @@ problems with 2 to 10 objectives.
 material) shows the average IGD progress curves (against the number of evaluations) for RCAS with $2d-1$, $5d-1$, $11d-1$, and $15d-1$ initial points
 on DTLZ2 test problems with 2 to 10 objectives.
 
-[results_on_tbrook/tbrook_box_plots.pdf](https://github.com/INFORMSJoC/2021.0343/blob/master/results/results_on_tbrook/tbrook_box_plots.pdf) (i.e., Figure 3 in the supplementary
+[results_on_tbrook/tbrook_box_plots.pdf](https://github.com/INFORMSJoC/2021.0343/blob/master/results/restuls_on_tbrook/tbrook_box_plots.pdf) (i.e., Figure 3 in the supplementary
 material) shows the box plots of IGD, Hypervolume (HV), and the number of non-dominated solutions (NS) obtained by four algorithms after 600
 evaluations on TBrook1 and TBrook2 problems.
 
@@ -175,7 +175,7 @@ implements the RECAS strategy class that starts with sample_init() method (i.e.,
 generate_evals(num_pts) method by iterations (i.e., iteration phase). Inheriting from SurrogateBaseStrategy in pySOT, the RECA strategy supports
 running in serial and batch synchronous parallel.
 
-[algorithm/multiobjective_sampling.py](https://github.com/INFORMSJoC/2021.0343/blob/master/src/RECASOpt/utils/multiobjective_sampling.py) implements the method
+[algorithm/multiobjective_sampling.py](https://github.com/INFORMSJoC/2021.0343/blob/master/src/RECASOpt/algorithm/multiobjective_sampling.py) implements the method
 to generate a group of candidates given a center point and the surrogate-assisted method to select one promising candidate for expensive evaluation
 
 [optimize/optimization.py](https://github.com/INFORMSJoC/2021.0343/blob/master/src/RECASOpt/optimize/optimization.py) provides the method to set up the
