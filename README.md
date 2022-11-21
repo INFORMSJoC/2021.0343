@@ -1,6 +1,6 @@
 [![INFORMS Journal on Computing Logo](https://INFORMSJoC.github.io/logos/INFORMS_Journal_on_Computing_Header.jpg)](https://pubsonline.informs.org/journal/ijoc)
 
-# Reference Vector Assisted Candidate Search with Aggregated Surrogate for Computationally Expensive Many Objective Optimization Problems
+# RECAS: An RBF Surrogate-Based Algorithm for Expensive Many-Objective Optimization Problems
 
 This archive is distributed in association with the [INFORMS Journal on Computing](https://pubsonline.informs.org/journal/ijoc) under
 the [MIT License](LICENSE).
@@ -35,8 +35,12 @@ where $\mathbf{x}$ denotes a vector composed of $d$ decision variables. The sear
 bounded by a lower bound $\mathbf{l}$ and a upper bound $\mathbf{u} \in \mathbb{R}^d$. $\mathbf{f}$ is composed of $k$ objective functions with $f_i$ representing the $i$-th objective to be optimized, $i = 1, \dots, k$. In the literature, MOPs with more than
 three objectives are also known as Many-objective Optimization Problems (MaOPs).
 
-The codes in this repo implement an effective Radial Basis Function (RBF) surrogate-assisted algorithm named **RECAS** for computationally expensive
+**RECAS** is an effective Radial Basis Function (RBF) surrogate-based algorithm for computationally expensive
 multi- and many-objective optimization problem where each objective is assumed to be black-box and expensive-to-evaluate.
+The proposed algorithm iteratively determines new sample points for expensive evaluation through multiple candidate searches 
+with the assistance of a set of adapative reference vectors. Meanwhile, it constructs the surrogate model in an aggregated manner 
+to approximate the quality assessment indicator of each point rather than a certain objective function. 
+Under some mild assumptions, RECAS converges almost surely to the Pareto-optimal front. 
 
 ## Installation
 
@@ -44,11 +48,9 @@ The Python version of RECAS is implemented upon a surrogate optimization toolbox
 experimental desings, acquisition functions, and test problems. To find out more about pySOT, please visit
 its [toolbox documentation](http://pysot.readthedocs.io/) or refer to the corresponding
 paper [David Eriksson, David Bindel, Christine A. Shoemaker. pySOT and POAP: An event-driven asynchronous framework for surrogate optimization. arXiv preprint arXiv:1908.00420, 2019](https://doi.org/10.48550/arXiv.1908.00420)
-.
-
-In a virtual environment with Python 3.4 or newer, RECASOpt package can be installed by
+. In a virtual environment with Python 3.4 or newer, the pySOT package can be installed by
 ```
-pip install git+https://github.com/WY-Wang/RECASOpt.git
+pip install pySOT
 ```
 
 ## Using RECAS
@@ -133,13 +135,13 @@ Once a trial on DTLZ2(nobj=2, dim=10) is completed, the algorithm will automatic
 
 ### results folder
 
-[parameter_analysis/batch_size.pdf](https://github.com/INFORMSJoC/2021.0343/blob/master/results/parameter_analysis/batch_size.pdf) (i.e., Figure 2 in the supplementary
-material) shows the average IGD progress curves (against the number of iterations) for RECAS with batch size being 2, 5, 10, 15, ane 20 on DTLZ2 test
-problems with 2 to 10 objectives.
-
 [parameter_analysis/initial_size.pdf](https://github.com/INFORMSJoC/2021.0343/blob/master/results/parameter_analysis/initial_size.pdf) (i.e., Figure 1 in the supplementary
 material) shows the average IGD progress curves (against the number of evaluations) for RCAS with $2d-1$, $5d-1$, $11d-1$, and $15d-1$ initial points
 on DTLZ2 test problems with 2 to 10 objectives.
+
+[parameter_analysis/batch_size.pdf](https://github.com/INFORMSJoC/2021.0343/blob/master/results/parameter_analysis/batch_size.pdf) (i.e., Figure 2 in the supplementary
+material) shows the average IGD progress curves (against the number of iterations) for RECAS with batch size being 2, 5, 10, 15, ane 20 on DTLZ2 test
+problems with 2 to 10 objectives.
 
 [results_on_tbrook/tbrook_box_plots.pdf](https://github.com/INFORMSJoC/2021.0343/blob/master/results/restuls_on_tbrook/tbrook_box_plots.pdf) (i.e., Figure 3 in the supplementary
 material) shows the box plots of IGD, Hypervolume (HV), and the number of non-dominated solutions (NS) obtained by four algorithms after 600
@@ -175,9 +177,6 @@ implements the RECAS strategy class that starts with sample_init() method (i.e.,
 generate_evals(num_pts) method by iterations (i.e., iteration phase). Inheriting from SurrogateBaseStrategy in pySOT, the RECA strategy supports
 running in serial and batch synchronous parallel.
 
-[algorithm/multiobjective_sampling.py](https://github.com/INFORMSJoC/2021.0343/blob/master/src/RECASOpt/algorithm/multiobjective_sampling.py) implements the method
-to generate a group of candidates given a center point and the surrogate-assisted method to select one promising candidate for expensive evaluation
-
 [optimize/optimization.py](https://github.com/INFORMSJoC/2021.0343/blob/master/src/RECASOpt/optimize/optimization.py) provides the method to set up the
 user-defined experiemtal parameters, test problem, experimental design method and surrogate model for RECAS and initiate a single algorithm run.
 
@@ -194,7 +193,4 @@ auxiliary tools used in RECAS.
 ## Ongoing Development
 
 This code is being developed on an on-going basis at the author's [Github site](https://github.com/WY-Wang/RECASOpt).
-
-## Support
-
-For support in using this software, submit an [issue](https://github.com/WY-Wang/RECASOpt/issues/new).
+For support in using RECAS, please correspond with [the author](wangwenyu0928@gmail.com).
