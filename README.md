@@ -18,7 +18,7 @@ Below is the BibTex for citing this version of the code.
   title =         {Reference Vector Assisted Candidate Search with Aggregated Surrogate for Computationally Expensive Many Objective
                    Optimization Problems},
   year =          {2022},
-  doi =           { 10.5281/zenodo.7243971},
+  doi =           {10.5281/zenodo.7243971},
   url =           {https://github.com/INFORMSJoC/2021.0343},
 }  
 ```
@@ -193,4 +193,4 @@ auxiliary tools used in RECAS.
 ## Ongoing Development
 
 This code is being developed on an on-going basis at the author's [Github site](https://github.com/WY-Wang/RECASOpt).
-For support in using RECAS, please correspond with [the author](wangwenyu0928@gmail.com).
+For support in using RECAS, please contact the author by email [wangwenyu0928@gmail.com](mailto:wangwenyu0928@gmail.com).
