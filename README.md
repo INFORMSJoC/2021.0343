@@ -5,6 +5,8 @@
 This archive is distributed in association with the [INFORMS Journal on Computing](https://pubsonline.informs.org/journal/ijoc) under
 the [MIT License](LICENSE).
 
+This associated is associated with the paper found at (https://pubsonline.informs.org/doi/10.1287/ijoc.2022.1260).
+
 To cite this material, please cite this repository, using the following DOI.
 
 [![DOI](https://zenodo.org/badge/554791093.svg)](https://zenodo.org/badge/latestdoi/554791093)
