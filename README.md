@@ -5,11 +5,9 @@
 This archive is distributed in association with the [INFORMS Journal on Computing](https://pubsonline.informs.org/journal/ijoc) under
 the [MIT License](LICENSE).
 
-This associated is associated with the paper found at (https://pubsonline.informs.org/doi/10.1287/ijoc.2022.1260).
+This code is associated with the [paper: Reference Vector Assisted Candidate Search with Aggregated Surrogate for Computationally Expensive Many Objective Optimization Problems](https://pubsonline.informs.org/doi/10.1287/ijoc.2022.1260).
 
-To cite this material, please cite this repository, using the following DOI.
-
-[![DOI](https://zenodo.org/badge/554791093.svg)](https://zenodo.org/badge/latestdoi/554791093)
+To cite this material, please cite this repository, using the following DOI: [https://doi.org/10.1287/ijoc.2022.1260.cd](https://doi.org/10.1287/ijoc.2022.1260.cd)
 
 Below is the BibTex for citing this version of the code.
 
@@ -20,7 +18,7 @@ Below is the BibTex for citing this version of the code.
   title =         {Reference Vector Assisted Candidate Search with Aggregated Surrogate for Computationally Expensive Many Objective
                    Optimization Problems},
   year =          {2022},
-  doi =           { 10.5281/zenodo.7243971},
+  doi =           {10.1287/ijoc.2022.1260.cd},
   url =           {https://github.com/INFORMSJoC/2021.0343},
 }  
 ```
